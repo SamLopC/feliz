@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:feliz/screens/home/widgets/ask_button.dart';
 import 'package:feliz/screens/home/widgets/greeting_header.dart';
 import 'package:feliz/screens/home/widgets/sun_card.dart';
-import 'package:feliz/services/user_profile_service.dart';
-import 'package:feliz/services/local_insight_service.dart';
+
+import '../../utils/components/adaptive_switch.dart';
+
 // import 'package:feliz/services/ai_query_service.dart';
 class HomeMainScreen extends StatelessWidget {
   final Function(bool) onToggleTheme;
@@ -30,11 +31,9 @@ class HomeMainScreen extends StatelessWidget {
             ),
             centerTitle: true,
             actions: [
-              Switch(
+              AdaptiveSwitch(
                 value: isDarkMode,
                 onChanged: onToggleTheme,
-                activeColor: Colors.white,
-                inactiveThumbColor: Colors.black,
               ),
             ],
           ),
@@ -47,7 +46,7 @@ class HomeMainScreen extends StatelessWidget {
             const SizedBox(height: 30),
             const SunCardCarousel(),
             const SizedBox(height: 30),
-            AskButton(onPressed: () {
+            AdaptiveAskButton(onPressed: () {
               // AIQueryService.startChat(context);
             }),
           ],
